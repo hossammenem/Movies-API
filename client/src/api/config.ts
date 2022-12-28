@@ -1,0 +1,1 @@
+export const API_URL = "https://movies-api-backend.onrender.com"
