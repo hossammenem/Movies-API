@@ -17,7 +17,7 @@ app.post('/delete-from-watchlist', protect, controllers.deleteFromWatchlist)
 app.post('/add-to-watchlist', protect, controllers.addToWatchlist)
 
 
-mongoose.connect("mongodb+srv://hossamMenem:jPUSjEygeSNXBrtx@cluster1.gtb5opt.mongodb.net/?retryWrites=true&w=majority").then(()=>{
+mongoose.connect(process.env.MONGO_URI!).then(()=>{
     console.log('listening on port 5000');
     app.listen(5000)
 })
