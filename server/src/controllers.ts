@@ -1,10 +1,12 @@
+import { config } form "dotenv"
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "./models/user";
+config()
 
 const generateToken = (id: String) => {
-    return jwt.sign({ id }, "askldfjlsdfuwoifj213io471890rsklvjKLJSDLJ:SDJKL:ASJDPAKDFJSKL:DVJXZC:KLASJDPFOQEmn", {
+    return jwt.sign({ id }, process.env.JWT_SECRET!, {
         expiresIn: "2d",
     });
 } 
