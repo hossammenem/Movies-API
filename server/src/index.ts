@@ -1,6 +1,3 @@
-import { config } from "dotenv"
-config()
-
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -20,7 +17,7 @@ app.post('/delete-from-watchlist', protect, controllers.deleteFromWatchlist)
 app.post('/add-to-watchlist', protect, controllers.addToWatchlist)
 
 
-mongoose.connect(process.env.MONGO_URL!).then(()=>{
+mongoose.connect("mongodb+srv://hossamMenem:jPUSjEygeSNXBrtx@cluster1.gtb5opt.mongodb.net/?retryWrites=true&w=majority").then(()=>{
     console.log('listening on port 5000');
     app.listen(5000)
 })

@@ -4,8 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { register, reset } from '../features/auth/authSlice'
 import PreLoader from '../components/PreLoader'
+import useDocumentTitle from "../components/useDocumentTitle";
+
 
 function Register() {
+  useDocumentTitle("Register")
 const [formData, setFormData] = useState({
     name: '',
     email: '',

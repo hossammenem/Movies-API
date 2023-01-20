@@ -1,12 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import searchForMovie from '../api/searchForMovie'
+import useDocumentTitle from "../components/useDocumentTitle";
+
 
 function SearchResults(){
   const [movies, setMovies] = useState<any>([]);
   const { title } = useParams();
   const navigate = useNavigate();
-
+  
+  useDocumentTitle(`Searched: ${title}`)
 
   useEffect(()=> {
     async function fetchMovieResults(){

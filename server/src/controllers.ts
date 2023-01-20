@@ -1,13 +1,12 @@
-import { config } from "dotenv"
-config()
-
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "./models/user";
 
+const API_KEY = "23c2625d"
+
 const generateToken = (id: String) => {
-    return jwt.sign({ id }, process.env.JWTSECRET!, {
+    return jwt.sign({ id }, "askldfjlsdfuwoifj213io471890rsklvjKLJSDLJ:SDJKL:ASJDPAKDFJSKL:DVJXZC:KLASJDPFOQEmn", {
         expiresIn: "2d",
     });
 } 

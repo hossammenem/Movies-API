@@ -5,6 +5,8 @@ import movieExists from "../api/movieExists";
 import { useSelector } from "react-redux";
 import addToWatchlist from "../api/addToWatchlist";
 import deleteFromWatchlist from "../api/deleteFromWatchlist";
+import useDocumentTitle from "../components/useDocumentTitle";
+
 
 function SingleMovie() {
   const [movie, setMovie] = useState<any>({});
@@ -13,7 +15,8 @@ function SingleMovie() {
   const { user } = useSelector(
     (state: any) => state.auth
 )
-
+  useDocumentTitle(title)
+  
   useEffect(()=> {
     async function getMovie(){
       const response = await getFullMovie(title!)
@@ -21,6 +24,7 @@ function SingleMovie() {
     }
     getMovie()
   }, [])
+
 
   useEffect(()=> {
     async function doesExist(){
@@ -90,16 +94,6 @@ function SingleMovie() {
     </div>
     
   </div>
-
-{/* 
-            <div className="social-btn">
-              <a href="{% url 'add-to-watchlist' movie.id %}" className="parent-btn"><i className="ion-heart"></i> Add to Watchlist</a>	
-            </div>
-
-            <div className="social-btn">
-              <a href="{% url 'signin' %}" className="parent-btn">*Log in now so you can add movies to your watchlist*</a>	
-            </div> */}
-
 <div className="movie-tabs">
   <div className="tab-content">
     <div id="overview" className="tab active">
