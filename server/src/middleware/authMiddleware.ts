@@ -1,6 +1,8 @@
+import { config } form "dotenv"
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import User from "../models/user";
+config()
 
 
 interface JwtPayload { id: string }
@@ -12,7 +14,7 @@ export async function protect(req: Request, res: Response, next: NextFunction){
         try {
             token = req.headers.authorization.split(" ")[1];
             
-            const { id } = jwt.verify(token, "askldfjlsdfuwoifj213io471890rsklvjKLJSDLJ:SDJKL:ASJDPAKDFJSKL:DVJXZC:KLASJDPFOQEmn") as JwtPayload;
+            const { id } = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
 
             req.user = await User.findById(id).select("-password");
 
