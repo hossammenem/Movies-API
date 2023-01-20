@@ -1,5 +1,5 @@
 import axios from "axios"
-const API_KEY = "23c2625d"
+import { API_KEY } from "./config"
 
 const moviesList = ["BLACK PANTHER: WAKANDA FOREVER", "The Pale Blue Eye",
           "GLASS ONION: A KNIVES OUT MYSTERY", "STRANGE WORLD", "THE MENU"]
