@@ -1,8 +1,10 @@
+import { config } from "dotenv"
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import { protect } from "./middleware/authMiddleware"
 import * as controllers  from "./controllers";
+config()
 
 const app = express();
 
