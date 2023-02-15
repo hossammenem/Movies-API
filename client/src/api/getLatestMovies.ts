@@ -1,8 +1,7 @@
 import axios from "axios"
 import { API_KEY } from "./config"
 
-const moviesList = ["BLACK PANTHER: WAKANDA FOREVER", "The Pale Blue Eye",
-          "GLASS ONION: A KNIVES OUT MYSTERY", "STRANGE WORLD", "THE MENU"]
+const moviesList = ["BLACK PANTHER: WAKANDA FOREVER", "The Pale Blue Eye", "STRANGE WORLD", "THE MENU"]
 export default async function getLatestMovies() {
       const response = []
       for(var i=0; i<moviesList.length; i++){
